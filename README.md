@@ -42,6 +42,7 @@ Have fun~! AI-ing~!!
 #### Limitations
 - You have to adjust the prompts according to your own MapleStory sources, it is not guaranteed to work as you may have different function names for the NPC conversation.
 - It may not work 100% of the time. Try to change the "temperature" parameters to 0.2 from 0 for a little added randomless to the output instead of a fixed-deterministic output. 
+- It might not be able to convert if the script's input size is > 4096 due to GPT's current limitation. 
 
 #### Documentation
  - Chat completions https://platform.openai.com/docs/guides/chat
