@@ -40,7 +40,22 @@ Have fun~! AI-ing~!!
 #### Limitations
 - You have to adjust the prompts according to your own MapleStory sources, it is not guaranteed to work as you may have different function names for the NPC conversation.
 - It may not work 100% of the time. Try to change the "temperature" parameters to 0.2 from 0 for a little added randomless to the output instead of a fixed-deterministic output. 
+- ALWAYS test it, before going to production. Every single script.
 - It might not be able to convert if the script's input size is > 4096 due to GPT's current limitation. 
+- It may sometimes hallucinate to create functions that lead to nowhere, I'm relatively sure GPT3.5 is trained on other MapleStory Odin-based sources out there on GitHub. It might be possible to solve this by showing it more examples of scripts converted manually by a human vs its unconverted counterpart when the limitations of 4096 tokens are lifted. Example: 
+```
+function onUserEnter() {
+    cm.say("I'm the head of this hair salon. If you have a #b#t5150053##k or a #b#t5151036##k allow me to take care of your hairdo. Please choose the one you want.");
+}
+
+function onUserExit() {
+    cm.say("Thank you for visiting our salon. Come back soon!");
+}
+
+function onDisconnected() {
+    cm.say("Oh no! You have disconnected. Please log back in and visit us again!");
+}
+```
 
 #### How its done:
 1. [System] Prompts GPT what persona it needs to be, or to act as. 
