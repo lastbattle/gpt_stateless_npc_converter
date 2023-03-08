@@ -30,7 +30,8 @@ const main = async () => {
   const prompt_system_1: string = readFileSync(path.join(__dirname, 'prompts/1_system.txt'), 'utf8');
   const prompt_system_2: string = readFileSync(path.join(__dirname, 'prompts/2_system.txt'), 'utf8');
   const prompt_user_3: string = readFileSync(path.join(__dirname, 'prompts/3_user.txt'), 'utf8');
-  const prompt_converted_stateless_npc_example: string = readFileSync(path.join(__dirname, 'prompts/9110107.js'), 'utf8');
+  const prompt_unconverted_stateless_npc_example: string = readFileSync(path.join(__dirname, 'prompts/9110107.js'), 'utf8');
+  const prompt_converted_stateless_npc_example: string = readFileSync(path.join(__dirname, 'prompts/9110107_converted_stateless.js'), 'utf8');
   const prompt_assistant_4: string = readFileSync(path.join(__dirname, 'prompts/4_assistant.txt'), 'utf8');
   const prompt_user_5: string = readFileSync(path.join(__dirname, 'prompts/5_user.txt'), 'utf8');
   
@@ -70,11 +71,11 @@ const main = async () => {
             },
             {
               "role": "user",
-              "content": prompt_user_3.replace('{ENTER_SCRIPT_TO_CONVERT_HERE}', prompt_converted_stateless_npc_example)
+              "content": prompt_user_3.replace('{ENTER_SCRIPT_TO_CONVERT_HERE}', prompt_unconverted_stateless_npc_example)
             },
             {
               "role": "assistant",
-              "content": prompt_assistant_4,
+              "content": prompt_assistant_4.replace('{ENTER_SCRIPT_TO_CONVERT_HERE}', prompt_converted_stateless_npc_example),
             },
             {
               "role": "user",
@@ -82,8 +83,8 @@ const main = async () => {
             },
           ],
           "temperature": 0, // Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.
-          "max_tokens": 600, // The maximum number of tokens to generate. By default, this is 150.
-          "top_p": 0, // An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
+          "max_tokens": 1000, // The maximum number of tokens to generate. By default, this is 150.
+          "top_p": 1, // An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
           "frequency_penalty": 0, // How much to penalize new tokens based on their existing frequency in the text so far. (Higher means the model will avoid repeating the same line over and over).
           "presence_penalty": 0, // How much to penalize new tokens based on whether they appear in the text so far. (Higher means the model will avoid repeating the same line over and over).
           "model": Constants.OPENAI_CHATGPT_MODEL, // The model to use. One of ada, babbage, curie, davinci, or content-filter-alpha-c4.

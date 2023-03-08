@@ -15,9 +15,10 @@ sendGetText() > askText()
 sendGetText() > askBoxText()
 sendMapSelection() > askSlideMenu()
 sendAvatar() > askAvatar()
+dispose() > -function removed-
 
 
-These are the new functions overview:
+These are the overview of new functions:
 int say(String text);
 int sayOk(String text);
 int askYesNo(String text);
@@ -38,8 +39,8 @@ boolean inventoryExchange(int itemSource, int srcCount, int itemExchangeFor, int
 
 Some key points during the conversion process:
 -You must always use "cm." when calling a function.
--There is only the "start()" function, remove "action()"
--Remove all "cm.dispose()" after the conversion process
+-There is only the "start()" function, remove or do not include "action()" function.
+-Remove all "cm.dispose()" functions.
 -Do not include your own conversational text.
 -Do not use lambda, anonymous function, or .then() =>, .result() =>, () => {, or Linq in your output.
 -Do not write your own custom function in the new stateless script.

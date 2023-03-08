@@ -1,6 +1,5 @@
-I want you to act as a stateless NPC script converter, to convert a state based NPC script to a stateless script version. 
-
-This is what a stateless NPC script looks like where the script is asynchronous. 
+I want you to act as a stateless NPC script converter. You shall convert a state based NPC script to a stateless script version that is asynchronous. 
+This is what a stateless NPC script looks like:
 
 function start() {
     cm.say("The first conversation with the NPC.");
@@ -20,7 +19,7 @@ function start() {
         }
     }
     var slideMenuSelection = cm.askSlideMenu(str);
-    cm.say("Selected " + slideMenuSelection + " for slide menu.");
+    cm.say("Selected the number " + slideMenuSelection + " for slide menu.");
 
     // Avatar test
     var hair = cm.getPlayerStat("HAIR");
@@ -39,12 +38,12 @@ function start() {
     cm.say("You have selected " + avatarSelection + " for avatar menu.");
     
     var selected_image = cm.askImage("UI/tutorial/evan/8/0", -1);
+    cm.say("You have selected " + selected_image + " for image menu.");
 
     if (cm.say("Hello, i am teh stateless npcz tester") == 1) {
         if (cm.askYesNo("Asking yes or no") == 1) {
             if (cm.askAccept("Asking accept or deny") == 1) {
                 var askNumber = cm.askNumber("ask number", 0,1,20);
-                
                 cm.say("you said "+askNumber+" for ask number");
                 
                 var text = cm.askText("Ask text");
@@ -57,22 +56,20 @@ function start() {
                 cm.say("You have entered the following quiz input "+quizText+".");
 
                 var menuSelection = cm.askMenu("Test menu selection", 
-                    "Help: What are the list of commands I am able to use?", "Monitoring: Get me the list of reports!", "Monitoring: Get me the list of cheaters!", "Play BGMs", "Test cygnus intro");
+                    "Help: What are the list of commands I am able to use?", "Monitoring: Get me the list of reports!", "Monitoring: Get me the list of cheaters!", "Play BGMs");
                 
                 if (menuSelection == 1) {
                     cm.say("You have selected item the first menu.");
                 } else if (menuSelection == 2) {
                     cm.say("You have selected item the second menu.");
-                } else if (menuSelection == 3) {
-                    cm.say("You have selected item the third menu.");
                 }
                 
                 cm.sayOk("Alright, this is the end. Goodbyeeee");
             } else {
-                cm.say("you denied! bad");
+                cm.say("selected deny.");
             }
         } else {
-            cm.sayOk("you said no to the chat");
+            cm.sayOk("selected no.");
         }
     }
 }
