@@ -27,9 +27,20 @@ const main = async () => {
   const openai = new OpenAIApi(configuration);
 
   // read a single file from folder
-  const prompt_system_1: string = readFileSync(path.join(__dirname, 'prompts/system_1.txt'), 'utf8');
-  const prompt_system_2: string = readFileSync(path.join(__dirname, 'prompts/system_2.txt'), 'utf8');
-  const prompt_user_3: string = readFileSync(path.join(__dirname, 'prompts/user_3.txt'), 'utf8');
+  const prompt_system_1: string = readFileSync(path.join(__dirname, 'prompts/1_system.txt'), 'utf8');
+  const prompt_system_2: string = readFileSync(path.join(__dirname, 'prompts/2_system.txt'), 'utf8');
+  const prompt_user_3: string = readFileSync(path.join(__dirname, 'prompts/3_user.txt'), 'utf8');
+  const prompt_converted_stateless_npc_example: string = readFileSync(path.join(__dirname, 'prompts/9110107.js'), 'utf8');
+  const prompt_assistant_4: string = readFileSync(path.join(__dirname, 'prompts/4_assistant.txt'), 'utf8');
+  const prompt_user_5: string = readFileSync(path.join(__dirname, 'prompts/5_user.txt'), 'utf8');
+  
+  /*
+  * 1. [System] Prompts GPT what persona it needs to be, or to act as. 
+  * 2. [System] Tells GPT the stateless NPC functions available
+  * 3. [User] Tells GPT to convert the script to a stateless NPC script.
+  * 4. [Assistant] Actually shows it a valid converted example to guide its knowledge further.
+  * 5. [User] Give it a real unconvered script, and ask for conversion.
+  */
 
   // read files from npc folder 
   const dir = path.join(__dirname, '_input/npc/');
@@ -59,19 +70,27 @@ const main = async () => {
             },
             {
               "role": "user",
-              "content": prompt_user_3.replace('{ENTER_SCRIPT_TO_CONVERT_HERE}', script)
+              "content": prompt_user_3.replace('{ENTER_SCRIPT_TO_CONVERT_HERE}', prompt_converted_stateless_npc_example)
+            },
+            {
+              "role": "assistant",
+              "content": prompt_assistant_4,
+            },
+            {
+              "role": "user",
+              "content": prompt_user_5.replace('{ENTER_SCRIPT_TO_CONVERT_HERE}', script)
             },
           ],
           "temperature": 0, // Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.
           "max_tokens": 600, // The maximum number of tokens to generate. By default, this is 150.
-          "top_p": 0.1, // An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
+          "top_p": 0, // An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
           "frequency_penalty": 0, // How much to penalize new tokens based on their existing frequency in the text so far. (Higher means the model will avoid repeating the same line over and over).
           "presence_penalty": 0, // How much to penalize new tokens based on whether they appear in the text so far. (Higher means the model will avoid repeating the same line over and over).
           "model": Constants.OPENAI_CHATGPT_MODEL, // The model to use. One of ada, babbage, curie, davinci, or content-filter-alpha-c4.
           "stream": false // Whether to stream back partial progress or not. If set to false, the API will only return a response when the request is complete.
         });
 
-        /*"id": "chatcmpl-6rf34acORrLY3OHS01wEjfUfAPaWC",
+        /*"id": "chatcmpl-",
         "object": "chat.completion",
         "created": 1678247194,
         "model": "gpt-3.5-turbo-0301",

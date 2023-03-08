@@ -1,0 +1,3 @@
+How about converting this script to a stateless NPC:
+
+{ENTER_SCRIPT_TO_CONVERT_HERE}

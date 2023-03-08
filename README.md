@@ -30,11 +30,11 @@ Have fun~! AI-ing~!!
 2. ```npm install``` 
 3. Create an account, and get a GPT API key at https://platform.openai.com/account/api-keys
 4. Go to ``constants.ts`` and enter the API key under ``OPENAI_API_KEY``
-5. Place your NPC scripts under ``_input\`` folder
+5. Place your NPC scripts under ``_input\npc\`` folder
 
 #### Start
 1. ```npx ts-node script.ts```
-2. You should see the converted files under ``_output\``
+2. You should see the converted files under ``_output\npc\``
 
 
 
@@ -44,7 +44,14 @@ Have fun~! AI-ing~!!
 - It may not work 100% of the time. Try to change the "temperature" parameters to 0.2 from 0 for a little added randomless to the output instead of a fixed-deterministic output. 
 - It might not be able to convert if the script's input size is > 4096 due to GPT's current limitation. 
 
-#### Documentation
+#### How its done:
+1. [System] Prompts GPT what persona it needs to be, or to act as. 
+2. [System] Tells GPT the stateless NPC functions available
+3. [User] Tells GPT to convert the script to a stateless NPC script.
+4. [Assistant] Actually shows it a valid converted example to guide its knowledge further.
+5. [User] Give it a real unconvered script, and ask for conversion.
+
+#### Useful link
  - Chat completions https://platform.openai.com/docs/guides/chat
  - Explore other AI prompts, to adjust its behaviour and personality https://github.com/f/awesome-chatgpt-prompts
 
