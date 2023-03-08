@@ -64,7 +64,7 @@ const main = async () => {
           ],
           "temperature": 0, // Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.
           "max_tokens": 600, // The maximum number of tokens to generate. By default, this is 150.
-          "top_p": 0, // An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
+          "top_p": 0.1, // An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
           "frequency_penalty": 0, // How much to penalize new tokens based on their existing frequency in the text so far. (Higher means the model will avoid repeating the same line over and over).
           "presence_penalty": 0, // How much to penalize new tokens based on whether they appear in the text so far. (Higher means the model will avoid repeating the same line over and over).
           "model": Constants.OPENAI_CHATGPT_MODEL, // The model to use. One of ada, babbage, curie, davinci, or content-filter-alpha-c4.

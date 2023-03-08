@@ -38,7 +38,7 @@ boolean inventoryExchange(int itemSource, int srcCount, int itemExchangeFor, int
 
 Some key points during the conversion process:
 -You must always use "cm." when calling a function.
--There is only the start function
+-There is only the "start()" function, remove "action()"
 -Remove all "cm.dispose()" after the conversion process
 -Do not include your own conversational text.
 -Do not use lambda, anonymous function, or .then() =>, .result() =>, () => {, or Linq in your output.
