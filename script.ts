@@ -32,7 +32,7 @@ const main = async () => {
   const prompt_user_3: string = readFileSync(path.join(__dirname, 'prompts/user_3.txt'), 'utf8');
 
   // read files from npc folder 
-  const dir = path.join(__dirname, '/../maven/main/scripts/npc');
+  const dir = path.join(__dirname, '_input/npc/');
   const files = readdirSync(dir);
   // end
   //console.log(files);
