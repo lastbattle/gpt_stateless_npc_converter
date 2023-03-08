@@ -1,0 +1,80 @@
+I want you to act as a stateless NPC script converter, to convert a state based NPC script to a stateless script version. 
+
+This is what a stateless NPC script looks like where the script is asynchronous. 
+
+function start() {
+    cm.say("The first conversation with the NPC.");
+    cm.say("The quick brown fox jumps over the lazy dog");
+    cm.say("We're no strangers to love");
+
+    // Slide menu
+    var targetMapId = [925020000, 980000000, 980030000];
+    var targetSelection = [1, 2, 3];
+    var mapText = [
+        "Mulung Training", "Monster Carnival", "Monster Carnival 2"];
+
+    var str = "";
+    for (var i = 0; i < mapText.length; i++) {
+        if (targetMapId[i] != -1) {
+            str += "#" + targetSelection[i] + "# " + mapText[i];
+        }
+    }
+    var slideMenuSelection = cm.askSlideMenu(str);
+    cm.say("Selected " + slideMenuSelection + " for slide menu.");
+
+    // Avatar test
+    var hair = cm.getPlayerStat("HAIR");
+    hair_Colo_new = [];
+    beauty = 1;
+
+    if (cm.getPlayerStat("GENDER") == 0) {
+        hair_Colo_new = [30030, 30020];
+    } else {
+        hair_Colo_new = [31050, 31040];
+    }
+    for (var i = 0; i < hair_Colo_new.length; i++) {
+        hair_Colo_new[i] = hair_Colo_new[i] + (hair % 10);
+    }
+    var avatarSelection = cm.askAvatar("I can totally change up your hairstyle and make it look so good. Why don't you change it up a bit? If you have #b#t5150001##k I'll change it for you. Choose the one to your liking~.", hair_Colo_new);
+    cm.say("You have selected " + avatarSelection + " for avatar menu.");
+    
+    var selected_image = cm.askImage("UI/tutorial/evan/8/0", -1);
+
+    if (cm.say("Hello, i am teh stateless npcz tester") == 1) {
+        if (cm.askYesNo("Asking yes or no") == 1) {
+            if (cm.askAccept("Asking accept or deny") == 1) {
+                var askNumber = cm.askNumber("ask number", 0,1,20);
+                
+                cm.say("you said "+askNumber+" for ask number");
+                
+                var text = cm.askText("Ask text");
+                cm.say("You have entered the following text: "+text+" .");
+
+                var boxText = cm.askBoxText("Ask box text", "Default answer", /*Column*/ 0, /*Line*/ 0);
+                cm.say("You have entered the following text: "+boxText+".");
+
+                var quizText = cm.askQuiz("Ask quiz conversation", "What is 1+5?", "Maybe 6", /*Input min*/ 0, /*Input max*/ 100, /*Time limit*/ 500);
+                cm.say("You have entered the following quiz input "+quizText+".");
+
+                var menuSelection = cm.askMenu("Test menu selection", 
+                    "Help: What are the list of commands I am able to use?", "Monitoring: Get me the list of reports!", "Monitoring: Get me the list of cheaters!", "Play BGMs", "Test cygnus intro");
+                
+                if (menuSelection == 1) {
+                    cm.say("You have selected item the first menu.");
+                } else if (menuSelection == 2) {
+                    cm.say("You have selected item the second menu.");
+                } else if (menuSelection == 3) {
+                    cm.say("You have selected item the third menu.");
+                }
+                
+                cm.sayOk("Alright, this is the end. Goodbyeeee");
+            } else {
+                cm.say("you denied! bad");
+            }
+        } else {
+            cm.sayOk("you said no to the chat");
+        }
+    }
+}
+
+

@@ -1,0 +1,16 @@
+{
+  "name": "gpt-npc-script-project",
+  "devDependencies": {
+    "@types/node-schedule": "^2.1.0"
+  },
+  "dependencies": {
+    "cron": "^2.0.0",
+    "decimal.js": "^10.3.1",
+    "express": "^4.18.1",
+    "next": "^12.2.0",
+    "openai": "^3.2.1",
+    "request": "^2.88.2",
+    "universal-reconnecting-websocket": "^2.0.0",
+    "ws": "^8.6.0"
+  }
+}

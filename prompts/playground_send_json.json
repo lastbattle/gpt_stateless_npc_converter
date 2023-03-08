@@ -1,0 +1,74 @@
+POST https: //api.openai.com/v1/chat/completions HTTP/1.1
+Host: api.openai.com
+Connection: keep-alive
+Content-Length: 6517
+accept: text/event-stream
+OpenAI-Organization: 
+Authorization: Bearer sess-
+User-Agent: 
+Content-Type: application/json
+Sec-GPC: 1
+Accept-Language: en-US,en;q=0.8
+Origin: https: //platform.openai.com
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https: //platform.openai.com/
+Accept-Encoding: gzip, deflate, br
+
+
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "I want you to act as a stateless NPC script converter, to convert a state based NPC script to a stateless script version. \n\nThis is what a stateless NPC script looks like where the script is asynchronous. \n\nfunction start() {"
+        }
+    ],
+    "temperature": 0,
+    "max_tokens": 545,
+    "top_p": 0,
+    "frequency_penalty": 0,
+    "presence_penalty": 0,
+    "model": "gpt-3.5-turbo",
+    "stream": false
+}
+
+
+
+HTTP/1.1 200 OK
+Date: Wed,
+08 Mar 2023 03: 46: 50 GMT
+Content-Type: application/json
+Content-Length: 2362
+Connection: keep-alive
+Access-Control-Allow-Origin: https: //platform.openai.com
+Cache-Control: no-cache, must-revalidate
+Openai-Model: gpt-3.5-turbo-0301
+Openai-Organization: user-
+Openai-Processing-Ms: 16393
+Openai-Version: 2020-10-01
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+Vary: Origin
+X-Request-Id: 
+
+{
+    "id": "chatcmpl-6rf34acORrLY3OHS01wEjfUfAPaWC",
+    "object": "chat.completion",
+    "created": 1678247194,
+    "model": "gpt-3.5-turbo-0301",
+    "usage": {
+        "prompt_tokens": 1625,
+        "completion_tokens": 490,
+        "total_tokens": 2115
+    },
+    "choices": [
+        {
+            "message": {
+                "role": "assistant",
+                "content": "function start() {\n    if (cm.getPreviousNPC() == 0) {\n        cm.say(\"Hi there! This cab is for VIP cu"
+            },
+            "finish_reason": "stop",
+            "index": 0
+        }
+    ]
+}
