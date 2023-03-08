@@ -7,9 +7,7 @@ They can be automated for less than a few dollars today without the need of a th
 With the release of ``gpt-3.5-turbo`` model today 08/03/2023 that makes it even better, I shall present you with the following that I have for a while.
 
 
-[GPT Playground](https://platform.openai.com/playground?mode=chat&model=gpt-3.5-turbo-0301) (get the prompts from "/prompts" folder of this repo)
-![image](https://user-images.githubusercontent.com/4586194/223625940-698427c4-a6b3-48a9-9a5b-45a85ee11385.png)
-
+![Gif output](https://user-images.githubusercontent.com/4586194/223651643-5af0f58d-ea23-48e2-b7d0-6afa428e91ed.gif)
 
 
 #### Before:
@@ -54,4 +52,4 @@ Have fun~! AI-ing~!!
 #### Useful link
  - Chat completions https://platform.openai.com/docs/guides/chat
  - Explore other AI prompts, to adjust its behaviour and personality https://github.com/f/awesome-chatgpt-prompts
-
+ - [GPT Playground](https://platform.openai.com/playground?mode=chat&model=gpt-3.5-turbo-0301) (get the prompts from "/prompts" folder of this repo)
