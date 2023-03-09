@@ -26,8 +26,8 @@ Have fun~! AI-ing~!!
 #### Installation & setup
 1. Install NodeJS 18: https://nodejs.org/en/ 
 2. ```npm install``` 
-3. Create an account, and get a GPT API key at https://platform.openai.com/account/api-keys
-4. Go to ``constants.ts`` and enter the API key under ``OPENAI_API_KEY``
+3. Create an account, and get an [OpenAI API](https://platform.openai.com/account/api-keys) key 
+4. Go to ``config.ts`` and enter the API key under ``OPENAI_API_KEY``
 5. Place your NPC scripts under ``_input\npc\`` folder
 
 #### Start

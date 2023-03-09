@@ -2,7 +2,7 @@
 export class Config {
 
     // only `gpt-3.5-turbo` and `gpt-3.5-turbo-0301` 
-    public static readonly OPENAI_CHATGPT_MODEL: string = "gpt-3.5-turbo";
+    public static readonly OPENAI_CHATGPT_MODEL: string = "gpt-3.5-turbo-0301";
      // Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.
      public static readonly GPT3_5_CONFIG_TEMPERATURE: number = 0; 
      // The maximum number of tokens to generate. By default, this is 150.
@@ -22,4 +22,6 @@ export class Config {
     public static readonly INPUT_FOLDER: string = "_input";
     public static readonly OUTPUT_FOLDER: string = "_output";
 
+    // The number of times to run the same script to the model to achieve better results
+    public static readonly NUM_LITERATIONS_TO_RUN_SCRIPT_THROUGH_MODEL = 1;
 }
