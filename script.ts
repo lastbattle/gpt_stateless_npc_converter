@@ -69,7 +69,7 @@ const main = async () => {
             messages: [ // The chat log. This is an array of objects, each of which contains a role and a content field. The role field can be either user or system. The content field is the text of the message.
               {
                 "role": "system",
-                "content": (prompt_system_1 + prompt_system_2),
+                "content": (prompt_system_1 + prompt_system_2.replace('{ENTER_GPT_MODEL_HERE}', Config.OPENAI_CHATGPT_MODEL)),
               },
               {
                 "role": "user",
