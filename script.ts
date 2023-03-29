@@ -52,8 +52,6 @@ const main = async () => {
   // loop through the files
   for (const npc_file_name of files) {
     if (npc_file_name.endsWith('.js')) {
-      console.log(npc_file_name);
-
       const script_original: string = readFileSync(path.join(__dirname, Config.INPUT_FOLDER, 'npc/' + npc_file_name), 'utf8');
       var script: string = script_original;
 
@@ -62,6 +60,9 @@ const main = async () => {
 
       // https://platform.openai.com/docs/guides/chat/introduction
       // see CreateChatCompletionRequest in api.d.ts
+      const gpt_model_use = script.length > 3000 ? Config.OPENAI_CHATGPT_MODEL_OVER_5K_LENGTH : Config.OPENAI_CHATGPT_MODEL;
+      console.log(npc_file_name, ', Using model = ', gpt_model_use, ', Script length = ', script.length);
+
       try {
         for (let i = 0; i < Config.NUM_LITERATIONS_TO_RUN_SCRIPT_THROUGH_MODEL; i++) {
 
@@ -69,7 +70,7 @@ const main = async () => {
             messages: [ // The chat log. This is an array of objects, each of which contains a role and a content field. The role field can be either user or system. The content field is the text of the message.
               {
                 "role": "system",
-                "content": (prompt_system_1 + prompt_system_2.replace('{ENTER_GPT_MODEL_HERE}', Config.OPENAI_CHATGPT_MODEL)),
+                "content": (prompt_system_1 + prompt_system_2.replace('{ENTER_GPT_MODEL_HERE}', gpt_model_use)),
               },
               {
                 "role": "user",
@@ -77,7 +78,7 @@ const main = async () => {
               },
               {
                 "role": "assistant",
-                "content": prompt_assistant_4.replace('{ENTER_SCRIPT_TO_CONVERT_HERE}', prompt_converted_stateless_npc_example),
+                "content": prompt_assistant_4.replace('{ENTER_SCRIPT_TO_CONVERT_HERE}', prompt_converted_stateless_npc_example.replace('{ENTER_GPT_MODEL_HERE}', gpt_model_use)),
               },
               {
                 "role": "user",
@@ -89,7 +90,7 @@ const main = async () => {
             "top_p": Config.GPT3_5_CONFIG_TOPP, // An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
             "frequency_penalty": Config.GPT3_5_CONFIG_FREQUENCYPENALTY, // How much to penalize new tokens based on their existing frequency in the text so far. (Higher means the model will avoid repeating the same line over and over).
             "presence_penalty": Config.GPT3_5_CONFIG_PRESENCEPENALTY, // How much to penalize new tokens based on whether they appear in the text so far. (Higher means the model will avoid repeating the same line over and over).
-            "model": Config.OPENAI_CHATGPT_MODEL, // The model to use. One of ada, babbage, curie, davinci, or content-filter-alpha-c4.
+            "model": gpt_model_use, // The model to use. One of ada, babbage, curie, davinci, or content-filter-alpha-c4.
             "stream": false // Whether to stream back partial progress or not. If set to false, the API will only return a response when the request is complete.
           });
           const output_gpt_script = response.data.choices[0].message.content;

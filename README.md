@@ -4,7 +4,8 @@ These scripts are state-based and can often be laborious to write, and even more
 
 They can be automated for less than a few dollars today without the need of a third world slave. 
 
-With the release of ``gpt-3.5-turbo`` model today 08/03/2023 that makes it even better, I shall present you with the following that I have for a while.
+-  08/03/2023 -- With the release of ``gpt-3.5-turbo`` model today that makes it even better, I shall present you with the following that I have for a while.
+- 29/03/2023 -- updated for GPT4
 
 
 ![Gif output](https://user-images.githubusercontent.com/4586194/223651643-5af0f58d-ea23-48e2-b7d0-6afa428e91ed.gif)
@@ -41,8 +42,9 @@ Have fun~! AI-ing~!!
 - You have to adjust the prompts according to your own MapleStory sources, it is not guaranteed to work as you may have different function names for the NPC conversation.
 - It may not work 100% of the time. Try to change the "temperature" parameters to 0.2 from 0 for a little added randomless to the output instead of a fixed-deterministic output. 
 - ALWAYS test it, before going to production. Every single script.
-- It might not be able to convert if the script's input size is > 4096 due to GPT's current limitation. 
-- It may sometimes hallucinate to create functions that lead to nowhere, I'm relatively sure GPT3.5 is trained on other MapleStory Odin-based sources out there on GitHub. It might be possible to solve this by showing it more examples of scripts converted manually by a human vs its unconverted counterpart when the limitations of 4096 tokens are lifted. Example: 
+- Further optimisation is possible down the road when [fine-tuning](https://platform.openai.com/docs/guides/fine-tuning) of a model is supported for GPT3.5/GPT4 and above. To save both cost and for higher accuracy.
+- It might not be able to convert if the script's input size is > 32,768 tokens due to GPT4's current limitation. 
+- It may sometimes hallucinate to create functions that lead to nowhere, I'm relatively sure GPT is trained on other MapleStory Odin-based sources out there on GitHub. It might be possible to solve this by showing it more examples of scripts converted manually by a human vs its unconverted counterpart when the limitations of 4096 tokens are lifted. Example: 
 ```
 function onUserEnter() {
     cm.say("I'm the head of this hair salon. If you have a #b#t5150053##k or a #b#t5151036##k allow me to take care of your hairdo. Please choose the one you want.");
