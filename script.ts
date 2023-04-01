@@ -45,7 +45,9 @@ const main = async () => {
 
   // read files from npc folder 
   const dir = path.join(__dirname, Config.INPUT_FOLDER, 'npc/');
+  const dir_output = path.join(__dirname, Config.OUTPUT_FOLDER, 'npc/');
   const files = readdirSync(dir);
+
   // end
   //console.log(files);
 
@@ -60,8 +62,18 @@ const main = async () => {
 
       // https://platform.openai.com/docs/guides/chat/introduction
       // see CreateChatCompletionRequest in api.d.ts
-      const gpt_model_use = script.length > 3000 ? Config.OPENAI_CHATGPT_MODEL_OVER_5K_LENGTH : Config.OPENAI_CHATGPT_MODEL;
-      console.log(npc_file_name, ', Using model = ', gpt_model_use, ', Script length = ', script.length);
+      const gpt_model_use: string = script.length > 3000 ? Config.OPENAI_CHATGPT_MODEL_OVER_5K_LENGTH : Config.OPENAI_CHATGPT_MODEL;
+      console.log(npc_file_name, ', Use GPT model: ', gpt_model_use, ', Script length: ', script.length);
+
+      // check if previously converted script contains string gpt_model_use
+      // in this case since its already converted, just skip it.
+      if (existsSync(path.join(dir_output, npc_file_name))) {
+        var prev_refractored_script: string = readFileSync(path.join(dir_output, npc_file_name), 'utf8');
+        if (prev_refractored_script.includes(gpt_model_use)) {
+          console.log("Skipping.. script already converted by ", gpt_model_use);
+          continue;
+        }
+      }
 
       try {
         for (let i = 0; i < Config.NUM_LITERATIONS_TO_RUN_SCRIPT_THROUGH_MODEL; i++) {
@@ -99,6 +111,7 @@ const main = async () => {
 
         // write to console to peek at the result
         console.log(script);
+        console.log("");
 
         // create a file and write its contents
         if (!existsSync(path.join(__dirname, Config.OUTPUT_FOLDER, 'npc'))) {
