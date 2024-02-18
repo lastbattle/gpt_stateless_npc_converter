@@ -21,6 +21,14 @@ See it live here: [https://chat.openai.com/g/g-P3LABcaro-maplestory-npc-scripter
 ![image](https://user-images.githubusercontent.com/4586194/223625214-758a2d74-71f5-42c9-af40-fbb47209cc3d.png)
 
 
+#### More examples:
+![image](https://github.com/lastbattle/gpt_stateless_npc_converter/assets/4586194/f035e054-aa4b-4750-9a44-0267ff723acc)
+
+![image](https://github.com/lastbattle/gpt_stateless_npc_converter/assets/4586194/2d61d618-3225-4a62-8f45-0ebd86f8c2bc)
+
+![image](https://github.com/lastbattle/gpt_stateless_npc_converter/assets/4586194/88e1dd93-28ca-48a5-8393-48c0b424253c)
+
+
 Have fun~! AI-ing~!! 
 
 ---------------------------------------
