@@ -1,11 +1,14 @@
+
 ## GPT MapleStory NPC Script converter
 This is a small technical demonstration showcasing the capabilities of GPT in relation to legacy MapleStory (odin-based source) scripts.
 These scripts are state-based and can often be laborious to write, and even more tedious to convert to a stateless alternative today (thousands upon thousands of them).
 
-They can be automated for less than a few dollars today without the need of a third world slave. 
+See it live here: [https://chat.openai.com/g/g-P3LABcaro-maplestory-npc-scripter](https://chat.openai.com/g/g-P3LABcaro-maplestory-npc-scripter)
+
 
 -  08/03/2023 -- With the release of ``gpt-3.5-turbo`` model today that makes it even better, I shall present you with the following that I have for a while.
 - 29/03/2023 -- updated for GPT4
+- 18/02/2024 -- An example has been included live. [Link](https://chat.openai.com/g/g-P3LABcaro-maplestory-npc-scripter)
 
 
 ![Gif output](https://user-images.githubusercontent.com/4586194/223651643-5af0f58d-ea23-48e2-b7d0-6afa428e91ed.gif)
