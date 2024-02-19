@@ -1,6 +1,9 @@
-## MapleStory NPC Script refractor using GPT4 (state-based to stateless-based)
+## Creating MapleStory (odin based source) NPC Script AI using GPT4 
 This is a small technical demonstration showcasing the capabilities of GPT in relation to legacy MapleStory (odin-based source) scripts.
-These scripts are state-based and can often be laborious to write, and even more tedious to convert to a stateless alternative today (thousands upon thousands of them).
+
+- State based NPC script to stateless NPC script - These scripts are state-based and can often be laborious to write, and even more tedious to convert to a stateless alternative today (thousands upon thousands of them).
+- NPC story-writer + script-writer. 
+
 
 See it live here: [https://chat.openai.com/g/g-P3LABcaro-maplestory-npc-scripter](https://chat.openai.com/g/g-P3LABcaro-maplestory-npc-scripter)
 
@@ -12,19 +15,17 @@ See it live here: [https://chat.openai.com/g/g-P3LABcaro-maplestory-npc-scripter
 
 ![Gif output](https://user-images.githubusercontent.com/4586194/223651643-5af0f58d-ea23-48e2-b7d0-6afa428e91ed.gif)
 
+------------------------
 
-#### Before:
-![image](https://user-images.githubusercontent.com/4586194/223625239-1c86e732-3179-4345-9105-268d5b578cdb.png)
-
-
-#### After: 
-![image](https://user-images.githubusercontent.com/4586194/223625214-758a2d74-71f5-42c9-af40-fbb47209cc3d.png)
-
-
-#### More examples:
+### More examples:
+##### Converting from state-based NPC script to stateless:
 ![image](https://github.com/lastbattle/gpt_stateless_npc_converter/assets/4586194/f035e054-aa4b-4750-9a44-0267ff723acc)
 
-![image](https://github.com/lastbattle/gpt_stateless_npc_converter/assets/4586194/2d61d618-3225-4a62-8f45-0ebd86f8c2bc)
+##### Creating a series of NPC scripts revolving around a single theme: 
+![image](https://github.com/lastbattle/gpt_stateless_npc_converter/assets/4586194/5526390d-2fa1-441e-88e5-190193b037dc)
+
+
+##### Creating complex Tic-Tac-Toe NPC script:
 
 ![image](https://github.com/lastbattle/gpt_stateless_npc_converter/assets/4586194/88e1dd93-28ca-48a5-8393-48c0b424253c)
 
